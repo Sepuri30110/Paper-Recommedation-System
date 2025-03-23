@@ -15,11 +15,11 @@ mongoose.connect("mongodb://127.0.0.1:27017/Paper-Recommender")
     .catch(err => console.log('Error connecting to MongoDB'))
 
 const loginRoutes = require('./routes/login.route')
-const adminRoutes = require('./routes/admin.route')
 const userRoutes = require('./routes/user.route')
 
+const user = require('./models/user.model')
+
 app.use('/',loginRoutes)
-app.use('/admin',adminRoutes)
 app.use('/user',userRoutes)
 
 app.listen(port, () => {
